@@ -1,89 +1,81 @@
 # YouTube Downloader (GY YouTube Downloader) v2.6.2
-GY YouTube Downloader is a user-friendly desktop application developed using Python and CustomTkinter. This application allows you to easily download YouTube videos and playlists in MP4 (video) or MP3 (audio) formats. Its simple interface makes it accessible and straightforward for anyone to use.
+GY YouTube İndirici, Python ve CustomTkinter kullanılarak geliştirilmiş, kullanıcı dostu bir masaüstü uygulamasıdır. Bu uygulama, YouTube videolarını ve çalma listelerini kolayca MP4 (video) veya MP3 (ses) formatlarında indirmenizi sağlar. Basit arayüzü sayesinde herkesin rahatlıkla kullanabileceği bir araçtır.
 
-Features
-Single Video Download: Download a specific YouTube video as MP4 or MP3.
-Playlist Download: Download entire YouTube playlists as MP3.
-Resolution Options: Choose from various video resolutions (e.g., 1080p, 720p) for MP4 downloads.
-Audio Quality Options: Select different bitrates (e.g., 320kbps, 192kbps) for MP3 downloads.
-Bulk Download: Automatically download multiple URLs listed in a text file.
-Download History: Keeps a record of all your downloads and allows re-downloading from history.
-User-Friendly Interface: Modern and intuitive CustomTkinter GUI for ease of use.
-Theme Selection: Customizable appearance with Dark and Light theme options.
-Progress Bar & Status Messages: Monitor the download process in real-time.
-Automatic Folder Creation: Automatically creates the specified output folder if it doesn't exist.
-License Verification System: Includes a basic token verification system to restrict unauthorized use (optional and easily manageable).
-Screenshots
-(Insert screenshots of your application here. Show different modes (light/dark theme), and different sections (main window, history window, bulk download dialog, etc.). This will make your project more appealing.)
+Özellikler
+- Tekli Video İndirme: Belirli bir YouTube videosunu MP4 veya MP3 olarak indirin.
+- Çalma Listesi İndirme: Tüm YouTube çalma listelerini tek seferde MP3 formatında indirin.
+- Çözünürlük Seçenekleri: MP4 indirmeleri için farklı video çözünürlükleri (örn., 1080p, 720p) arasından seçim yapın.
+- Ses Kalitesi Seçenekleri: MP3 indirmeleri için çeşitli bitrate'ler (örn., 320kbps, 192kbps) seçin.
+- Toplu İndirme: Bir metin dosyasında listelenen birden fazla URL'yi otomatik olarak indirin.
+- İndirme Geçmişi: Yapılan tüm indirmelerin kaydını tutar ve geçmişten tekrar indirme imkanı sunar.
+- Kullanıcı Dostu Arayüz: Modern ve sezgisel CustomTkinter arayüzü sayesinde kolay kullanım.
+- Tema Seçimi: Açık ve Koyu tema seçenekleriyle kişiselleştirilebilir görünüm.
+- İlerleme Çubuğu ve Durum Mesajları: İndirme sürecini gerçek zamanlı olarak takip edin.
+- Otomatik Klasör Oluşturma: Belirtilen çıktı klasörü mevcut değilse otomatik olarak oluşturur.
+- Lisans Doğrulama Sistemi: Basit bir token doğrulama sistemi ile yetkisiz kullanımı kısıtlama imkanı (isteğe bağlı ve kolayca yönetilebilir).
 
-Installation and Setup
-Prerequisites
-Python 3.x: Make sure you have Python 3.x installed on your system. You can download it from python.org.
-yt-dlp and customtkinter libraries: These are the core Python libraries.
-FFmpeg (Crucial!): FFmpeg must be installed and added to your system's PATH environment variable. This is essential for MP3 conversion and merging certain video formats. You can download FFmpeg from ffmpeg.org/download.html.
-Steps
-Clone the Repository or Download:
+*** Kurulum ve Çalıştırma
+1- Ön Gereksinimler
+Python 3.x: Sisteminizde Python 3.x'in yüklü olduğundan emin olun. Buradan indirebilirsiniz: python.org
+yt-dlp ve customtkinter kütüphaneleri: Bunlar temel Python kütüphaneleridir.
+FFmpeg (Çok Önemli!): FFmpeg kurulu ve sisteminizin PATH ortam değişkenine eklenmiş olmalıdır. Bu, MP3 dönüştürme ve bazı video formatlarının birleştirilmesi için hayati öneme sahiptir. FFmpeg'i buradan indirebilirsiniz: ffmpeg.org/download.html.
+
+Adımlar
+Depoyu Klonlayın veya İndirin:
 
 Bash
-
-git clone https://github.com/YourGitHubUsername/gy-youtube-downloader.git
+git clone https://github.com/GurkanY/gy-youtube-downloader.git
 cd gy-youtube-downloader
-(Replace YourGitHubUsername with your actual GitHub username.)
 
-Install Required Python Libraries:
+Gerekli Python Kütüphanelerini Yükleyin:
 
-It's recommended to create a virtual environment first, but you can also install globally.
+Önce bir sanal ortam oluşturmanız önerilir, ancak doğrudan da kurabilirsiniz.
 
-Using a virtual environment (recommended):
+Sanal ortam kullanarak (önerilir):
 
 Bash
 
 python -m venv venv
-# On Windows:
+# Windows'ta:
 .\venv\Scripts\activate
-# On macOS/Linux:
+# macOS/Linux'ta:
 source venv/bin/activate
 pip install -r requirements.txt
-Without a virtual environment (less recommended for general development):
+Sanal ortam olmadan (genel geliştirme için daha az önerilir):
 
 Bash
 
 pip install customtkinter yt-dlp Pillow
-(If you want to create a requirements.txt file, navigate to your project directory in the terminal and run: pip freeze > requirements.txt)
+(Eğer bir requirements.txt dosyası oluşturmak isterseniz, terminalde proje dizininize gidip şunu çalıştırın: pip freeze > requirements.txt)
 
-FFmpeg Setup (Important!)
-Ensure FFmpeg is downloaded and added to your system's PATH. If you're unsure how to do this, a quick search for "add ffmpeg to path [your operating system]" will provide detailed instructions.
+FFmpeg Kurulumu (Önemli!)
+FFmpeg'in indirildiğinden ve sisteminizin PATH'ine eklendiğinden emin olun. Bunu nasıl yapacağınızdan emin değilseniz, "add ffmpeg to path [işletim sisteminiz]" şeklinde hızlı bir arama size detaylı talimatlar sağlayacaktır.
 
-Token File Setup (Optional, for development/testing)
-The application includes a basic token verification system. If you plan to use this, create a file named tokens.txt in the root directory of the project. Each line in this file should contain a valid token. The application will hash these tokens for verification.
-Example tokens.txt:
+Token Dosyası Kurulumu (İsteğe Bağlı, geliştirme/test için)
+Uygulama temel bir token doğrulama sistemi içerir. Bunu kullanmayı planlıyorsanız, projenin kök dizinine tokens.txt adında bir dosya oluşturun. Bu dosyadaki her satır geçerli bir token içermelidir. Uygulama bu token'ları doğrulama için hashleyecektir.
+Örnek tokens.txt:
 
 mysecrettoken123
 anotherValidToken456
-(If this file is not present or empty, the application's token verification will fail unless bypassed in the code, or a valid token is provided at startup.)
+(Bu dosya mevcut değilse veya boşsa, uygulamada bypass edilmediği veya başlangıçta geçerli bir token girilmediği sürece uygulamanın token doğrulaması başarısız olacaktır.)
 
-Run the Application:
-
-Bash
-
+Uygulamayı Çalıştırın:
 python youtube_indirici_gurkan_v4.py
-Usage
-Launch the application.
-Paste a YouTube video or playlist URL into the "YouTube URL" field.
-Select the desired download type (MP4 Video, MP3 Audio, Playlist MP3).
-Adjust the quality options (video resolution for MP4, audio bitrate for MP3) that appear based on your selection.
-Choose an output folder or use the default (indirilen_icerikler).
-Click the "Download" button to start the download.
-For bulk downloads, click "Bulk Download" and select a .txt file containing your list of URLs.
-Access your previous downloads by clicking the "History" button.
-Development Notes
-This project was developed as a practice in creating a modern and functional GUI using Python's CustomTkinter library. The yt-dlp library handles the actual YouTube content downloading and conversion processes.
 
-Contributing
-Your feedback and contributions are always welcome! If you find any bugs or wish to suggest new features, please feel free to open an "Issue" or submit a "Pull Request."
+Kullanım
+Uygulamayı başlatın.
+YouTube video veya çalma listesi URL'sini "YouTube URL'si" alanına yapıştırın.
+İstenen indirme türünü (MP4 Video, MP3 Ses, Playlist MP3) seçin.
+Seçiminize göre beliren kalite seçeneklerini (MP4 için video çözünürlüğü, MP3 için ses bitrate'i) ayarlayın.
+Bir çıktı klasörü seçin veya varsayılanı (indirilen_icerikler) kullanın.
+İndirmeyi başlatmak için "İndir" düğmesine tıklayın.
+Toplu indirmeler için "Toplu İndir" düğmesine tıklayın ve URL listenizi içeren bir .txt dosyası seçin.
+Önceki indirmelerinize "Geçmiş" düğmesine tıklayarak erişin.
+Geliştirme Notları
+Bu proje, Python'ın CustomTkinter kütüphanesini kullanarak modern ve işlevsel bir GUI oluşturma pratiği olarak geliştirilmiştir. yt-dlp kütüphanesi, gerçek YouTube içerik indirme ve dönüştürme işlemlerini gerçekleştirir.
 
-License
-This project is developed by Gürkan Yılmaz. All rights reserved. For commercial use or redistribution, please contact the developer.
+Lisans
+Bu proje Gürkan Yılmaz tarafından geliştirilmiştir. Tüm hakları saklıdır. Ticari kullanım veya yeniden dağıtım için lütfen geliştiriciyle iletişime geçin.
 
-Developer Contact
+Geliştirici İletişim
 Gürkan Yılmaz - gurkanyilmaz.k@gmail.com
